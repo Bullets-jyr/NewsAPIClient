@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -36,6 +37,7 @@ android {
 }
 
 dependencies {
+    def lifecycle_version = "2.5.1"
 
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -53,6 +55,13 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     // https://square.github.io/okhttp/
     implementation("com.squareup.okhttp3:okhttp:4.10.0")
+    // https://developer.android.com/jetpack/androidx/releases/lifecycle?hl=ko
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    // Annotation processor
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 
     testImplementation 'junit:junit:4.13.2'
     // https://truth.dev/
